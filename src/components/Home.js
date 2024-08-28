@@ -16,14 +16,14 @@ const Home = () => {
   };
 
   const plants = [
-    { id: 1, name: 'Lavender Teracotta', price: 10, image: '/images/plant1.jpg' },
-    { id: 2, name: 'Geranium Flower', price: 15, image: '/images/plant2.jpg' },
-    { id: 3, name: 'Rose', price: 20, image: '/images/plant3.webp' },
-    { id: 4, name: 'Jade', price: 25, image: '/images/plant4.jpg' },
-    { id: 5, name: 'Vastu Plant', price: 30, image: '/images/plant5.jpg' },
-    { id: 6, name: 'Guava Plant', price: 35, image: '/images/plant6.jpg' },
-    { id: 7, name: 'Banana Leaf', price: 40, image: '/images/plant7.jpg' },
-    { id: 8, name: 'Bougainvillea', price: 45, image: '/images/plant8.webp' },
+    { id: 1, name: 'Lavender Teracotta', price: 10, image: '/images/Plant1.jpg' },
+    { id: 2, name: 'Geranium Flower', price: 15, image: '/images/Plant2.jpg' },
+    { id: 3, name: 'Rose', price: 20, image: '/images/Plant3.webp' },
+    { id: 4, name: 'Jade', price: 25, image: '/images/Plant4.jpg' },
+    { id: 5, name: 'Vastu Plant', price: 30, image: '/images/Plant5.jpg' },
+    { id: 6, name: 'Guava Plant', price: 35, image: '/images/Plant6.jpg' },
+    { id: 7, name: 'Banana Leaf', price: 40, image: '/images/Plant7.jpg' },
+    { id: 8, name: 'Bougainvillea', price: 45, image: '/images/Plant8.webp' },
   ];
 
   return (

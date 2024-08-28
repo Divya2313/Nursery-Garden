@@ -31,7 +31,7 @@ function Login() {
       const res = await axios.post('http://localhost:5000/api/users/google-login', { tokenId: response.credential });
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('userId', res.data.userId);
-      navigate('/'); // Redirect to home page after successful login
+      navigate('/home'); // Redirect to home page after successful login
     } catch (error) {
       console.error('Google login failed:', error);
       // Handle error (e.g., show notification)

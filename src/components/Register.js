@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Register.css';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import './Register.css';
 
 function Register() {
   const [registerData, setRegisterData] = useState({
@@ -10,7 +10,7 @@ function Register() {
     mobile: '',
     email: '',
     location: '',
-    password: '' // Ensure password is included
+    password: ''
   });
   const navigate = useNavigate();
 
@@ -20,12 +20,11 @@ function Register() {
   };
 
   const register = async (e) => {
-    e.preventDefault(); // Prevent form from reloading the page
+    e.preventDefault();
     try {
       const response = await axios.post('http://localhost:5000/api/users/register', registerData);
-      console.log('Registered:', response.data);
       toast.success('Registration successful!');
-      navigate('/profile'); // Redirect to profile page after successful registration
+      navigate('/profile'); // Ensure correct redirection to the profile page
     } catch (error) {
       console.error('Error registering:', error);
       toast.error('Registration failed. Please try again.');
@@ -38,48 +37,23 @@ function Register() {
         <h1>Register</h1>
         <div>
           <label>Name:</label>
-          <input
-            type="text"
-            name="name"
-            value={registerData.name}
-            onChange={handleInputChange}
-          />
+          <input type="text" name="name" value={registerData.name} onChange={handleInputChange} />
         </div>
         <div>
           <label>Mobile:</label>
-          <input
-            type="text"
-            name="mobile"
-            value={registerData.mobile}
-            onChange={handleInputChange}
-          />
+          <input type="text" name="mobile" value={registerData.mobile} onChange={handleInputChange} />
         </div>
         <div>
           <label>Email:</label>
-          <input
-            type="email"
-            name="email"
-            value={registerData.email}
-            onChange={handleInputChange}
-          />
+          <input type="email" name="email" value={registerData.email} onChange={handleInputChange} />
         </div>
         <div>
           <label>Location:</label>
-          <input
-            type="text"
-            name="location"
-            value={registerData.location}
-            onChange={handleInputChange}
-          />
+          <input type="text" name="location" value={registerData.location} onChange={handleInputChange} />
         </div>
         <div>
-          <label>Password:</label> {/* Add password input field */}
-          <input
-            type="password"
-            name="password"
-            value={registerData.password}
-            onChange={handleInputChange}
-          />
+          <label>Password:</label>
+          <input type="password" name="password" value={registerData.password} onChange={handleInputChange} />
         </div>
         <button type="submit">Register</button>
       </form>

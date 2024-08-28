@@ -26,7 +26,7 @@ function Cart() {
   };
 
   const handlePlaceOrder = async () => {
-    const userId = localStorage.getItem('userId'); // Or get it from your context/state
+    const userId = localStorage.getItem('userId');
     if (!userId) {
       toast.error('User not logged in.');
       return;
@@ -37,10 +37,11 @@ function Cart() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
         },
         body: JSON.stringify({
           userId,
-          items: state.cart,
+          items: state.cart
         }),
       });
 
