@@ -11,7 +11,7 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Login from './components/Login';
 import Register from './components/Register';
-import Profile from './components/Profile';
+
 import Landing from './components/Landing';
 
 

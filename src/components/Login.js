@@ -38,10 +38,7 @@ function Login() {
     }
   };
 
-  const handleFailure = (response) => {
-    console.log('Google login failed:', response);
-    // Handle failure (e.g., show notification)
-  };
+ 
 
   return (
     <div className="login-container">

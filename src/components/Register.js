@@ -11,8 +11,9 @@ function Register() {
     mobile: '',
     email: '',
     location: '',
-    password: ''
+    password: '',
   });
+
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
@@ -23,14 +24,16 @@ function Register() {
   const register = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/users/register', registerData);
+      // Remove the unused 'response' variable
+      await axios.post('http://localhost:5000/api/users/register', registerData);
       toast.success('Registration successful!');
-      navigate('/login'); // Ensure correct redirection to the login page
+      navigate('/login');
     } catch (error) {
       console.error('Error registering:', error);
       toast.error('Registration failed. Please try again.');
     }
   };
+  
 
   const responseGoogle = async (response) => {
     try {
@@ -38,7 +41,7 @@ function Register() {
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('userId', res.data.userId);
       toast.success('Google Sign-In successful!');
-      navigate('/login'); // Redirect to home page after successful login
+      navigate('/login');
     } catch (error) {
       console.error('Google Sign-In failed:', error);
       toast.error('Google Sign-In failed. Please try again.');
@@ -75,7 +78,6 @@ function Register() {
         <GoogleLogin
           onSuccess={responseGoogle}
           onError={() => {
-            console.log('Login Failed');
             toast.error('Google Sign-In failed. Please try again.');
           }}
         />
