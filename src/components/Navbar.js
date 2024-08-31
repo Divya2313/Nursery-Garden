@@ -10,7 +10,7 @@ const Navbar = () => {
       <Link to="/contact">Contact</Link>
       <Link to="/cart">Cart</Link>
       <Link to="/appointment">Appointment</Link>
-      <Link to="/profile">Profile</Link> {/* Add Profile link */}
+      {/* <Link to="/profile">Profile</Link> Add Profile link */}
     </div>
   );
 };

@@ -19,7 +19,7 @@ function Login() {
       const response = await axios.post('http://localhost:5000/api/users/login', loginData);
       localStorage.setItem('token', response.data.token);
       localStorage.setItem('userId', response.data.userId);
-      navigate('/'); // Redirect to home page after successful login
+      navigate('/home'); // Redirect to home page after successful login
     } catch (error) {
       console.error('Error logging in:', error);
       // Handle error (e.g., show notification)
@@ -33,7 +33,7 @@ function Login() {
       localStorage.setItem('userId', res.data.userId);
       navigate('/home'); // Redirect to home page after successful login
     } catch (error) {
-      console.error('Google login failed:', error);
+      console.error('Google Sign-In failed:', error);
       // Handle error (e.g., show notification)
     }
   };
@@ -44,37 +44,39 @@ function Login() {
   };
 
   return (
-    <GoogleOAuthProvider clientId="102090055112-9g695smm9tjht6vumecvt36dreja5vsk.apps.googleusercontent.com">
-      <div className="login-container">
-        <form onSubmit={login}>
-          <h1>Login</h1>
-          <div>
-            <label>Email:</label>
-            <input
-              type="email"
-              name="email"
-              value={loginData.email}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div>
-            <label>Password:</label>
-            <input
-              type="password"
-              name="password"
-              value={loginData.password}
-              onChange={handleInputChange}
-            />
-          </div>
-          <button type="submit">Login</button>
-        </form>
+    <div className="login-container">
+      <form onSubmit={login}>
+        <h1>Login</h1>
+        <div>
+          <label>Email:</label>
+          <input
+            type="email"
+            name="email"
+            value={loginData.email}
+            onChange={handleInputChange}
+          />
+        </div>
+        <div>
+          <label>Password:</label>
+          <input
+            type="password"
+            name="password"
+            value={loginData.password}
+            onChange={handleInputChange}
+          />
+        </div>
+        <button type="submit">Login</button>
+      </form>
+      <GoogleOAuthProvider clientId="102090055112-9g695smm9tjht6vumecvt36dreja5vsk.apps.googleusercontent.com">
         <GoogleLogin
           onSuccess={responseGoogle}
-          onFailure={handleFailure}
-          buttonText="Login with Google"
+          onError={() => {
+            console.log('Login Failed');
+            // Handle error (e.g., show notification)
+          }}
         />
-      </div>
-    </GoogleOAuthProvider>
+      </GoogleOAuthProvider>
+    </div>
   );
 }
 
