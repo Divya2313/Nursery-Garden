@@ -11,9 +11,7 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Login from './components/Login';
 import Register from './components/Register';
-
 import Landing from './components/Landing';
-
 
 const App = () => {
   return (
